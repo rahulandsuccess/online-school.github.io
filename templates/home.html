@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block body %}
+<div class="container"style="display:flex;flex-direction:column;justify-content:center;">
+    <h3 style="font-family: inherit;display: flex;
+    justify-content: center;">Recents Update</h3>
+    <table class="table"style="width:900px;margin:auto;margin-top:53px;">
+        <thead class="table-dark">
+          <td>Notice</td>
+          <td>Date</td>
+        </thead>
+        <tbody>
+          <td>school will remian suspended forever</td>
+          <td>14 february 2022</td>
+        </tbody>
+        <tbody>
+          <td>school will remian suspended forever2</td>
+          <td>7 august 2027</td>
+        </tbody>
+      </table>
+      <h4 style="font-family: inherit;display: flex;
+      justify-content: center;margin-top:56px;">Attendence</h4>
+      <table class="table"style="width: 900px;
+      margin: auto;
+      margin-top: 34px;">
+        <thead class="table-success">
+          <tr>
+            <th scope="col">StudentId</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Attended Lectures</th>
+            <th scope="col">Total Lectures</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>64</td>
+            <td>70</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>55</td>
+            <td>70</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Rahul</td>
+            <td>48</td>
+            <td>70</td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>
+{% endblock body %}

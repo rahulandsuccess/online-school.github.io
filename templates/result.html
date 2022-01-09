@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Result{% endblock title %}
+{% block body %}
+<div class="container">
+  <form action=""method="post"style="display:flex;flex-direction:column;width:600px;margin:auto;">{% csrf_token %}
+      <h2 style="font-family: fantasy;">Check your result Now !!</h2>
+        <input type="text" name='studentname' id="text" placeholder="enter your name"style="margin: 13px 12px;">
+        <input type="number"name="rollno"id='rollno'placeholder="enter your roll number"style="margin: 13px 12px;">
+        <div>
+            <button id="submit"type="submit"class="btn btn-primary mx-3">Check Result</button>
+        </div>
+    </form>
+</div>
+{% for details in allDetails %}
+
+
+<table class="table"style="width: 900px;
+      margin: auto;
+      margin-top: 34px;">
+        <thead class="table-success">
+          <tr>
+            <th scope="col">Student Id</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Marks out of 700</th>
+            <th scope="col">Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{details.roll_number}}</td>
+            <td>{{details.name}}</td>
+            <td>{{details.marks}}</td>
+            <td id="percent">{{details.percentage}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <div id="result"style="display: flex;
+      justify-content: center;
+      margin-top: 34px;
+      color: blue;
+      font-family: monospace;">
+
+      </div>
+
+{% endfor %}
+{% endblock body %}
+{% block script %}
+<script>
+console.log('hello')
+let percent = document.getElementById('percent').innerHTML
+console.log(percent)
+if (percent < 40){
+  console.log('fail')
+  let myStr = `<h4>Result:${'FAIL'}</h4>`
+  let finalResult = document.getElementById('result')
+  finalResult.innerHTML += myStr
+}
+else{
+  console.log('pass')
+  myStr = `<h4>Result:${'PASS'}</h4>`
+  finalResult = document.getElementById('result')
+  finalResult.innerHTML += myStr
+}
+
+</script>
+{% endblock script %}

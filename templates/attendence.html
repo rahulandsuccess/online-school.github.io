@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}attendence{% endblock title %}
+{% block body %}
+<div class="container">
+    <form action="attendence"method="post"style="display:flex;flex-direction:column;width:600px;margin:auto;">{% csrf_token %}
+        <h3>Check your Attendence Now !</h3>
+          <input type="text" name='studentname' id="text" placeholder="enter your name"style="margin: 13px 12px;">
+          <input type="number"name="rollno"id='rollno'placeholder="enter your roll number"style="margin: 13px 12px;">
+          <div>
+              <button id="submit"type="submit"class="btn btn-primary mx-3">Check Result</button>
+          </div>
+      </form>
+  </div>
+{% for details in allDetailsOfAttendence %}
+
+
+<table class="table"style="width: 900px;
+      margin: auto;
+      margin-top: 34px;">
+        <thead class="table-success">
+          <tr>
+            <th scope="col">Student Id</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Attended Lectures</th>
+            <th scope="col">Total Lectures</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{details.roll_number}}</td>
+            <td>{{details.name}}</td>
+            <td>{{details.attendedLectures }}</td>
+            <td >{{details.totalLectures }}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      
+
+{% endfor %}
+{% endblock body %}
